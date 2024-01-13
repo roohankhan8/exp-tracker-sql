@@ -1,8 +1,5 @@
 const { db } = require("@vercel/postgres");
-const {
-  expenses,
-  users,
-} = require("../app/lib/placeholder-data.js");
+const { expenses, users } = require("../app/lib/placeholder-data.js");
 const bcrypt = require("bcrypt");
 
 async function seedUsers(client) {
@@ -51,7 +48,7 @@ async function seedExpenses(client) {
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS expenses (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-        email TEXT NOT NULL UNIQUE,
+        email TEXT NOT NULL,
         category VARCHAR(255) NOT NULL,
         typeOfExp VARCHAR(255) NOT NULL,
         amount INT NOT NULL,
@@ -65,7 +62,7 @@ async function seedExpenses(client) {
     const insertedExpenses = await Promise.all(
       expenses.map(
         (expense) => client.sql`
-        INSERT INTO expenses (id,email, category, typeOfExp, amount)
+        INSERT INTO expenses (id, email, category, typeOfExp, amount, date)
         VALUES (${expense.id},${expense.email}, ${expense.category}, ${expense.typeOfExp}, ${expense.amount}, ${expense.date})
         ON CONFLICT (id) DO NOTHING;
       `
@@ -88,7 +85,7 @@ async function main() {
   const client = await db.connect();
 
   await seedUsers(client);
-  await seedExpenses(client)
+  await seedExpenses(client);
 
   await client.end();
 }

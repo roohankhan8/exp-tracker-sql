@@ -7,50 +7,62 @@ const users = [
     email: 'user@nextmail.com',
     password: '123456',
   },
+  {
+    id: '410544c2-4001-4271-9855-6ec4b6a6442b',
+    name: 'Roohan',
+    email: 'roohan@nextmail.com',
+    password: '123456',
+  },
 ];
 
 const expenses = [
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    email: 'roohan@nextmail.com',
     category:'expense',
     typeOfExp: 'food',
     amount: 15,
-    date: new Date()
+    date: '2022-12-06',
   },
   {
     id: '3958dc9e-742f-4377-85e9-fec4b6a6442a',
+    email: 'roohan@nextmail.com',
     category:'expense',
     typeOfExp: 'transportation',
     amount: 15,
-    date: new Date()
+    date: '2022-12-06',
   },
   {
     id: '3958dc9e-737f-4377-85e9-fec4b6a6442a',
+    email: 'user@nextmail.com',
     category:'expense',
     typeOfExp: 'other',
     amount: 15,
-    date: new Date()
+    date: '2022-12-06',
   },
   {
     id: '50ca3e18-62cd-11ee-8c99-0242ac120002',
+    email: 'user@nextmail.com',
     category:'income',
     typeOfExp: 'salary',
     amount: 15,
-    date: new Date()
+    date: '2022-12-06',
   },
   {
     id: '3958dc9e-787f-4377-85e9-fec4b6a6442a',
+    email: 'user@nextmail.com',
     category:'income',
     typeOfExp: 'salary',
     amount: 15,
-    date: new Date()
+    date: '2022-12-06',
   },
   {
     id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
+    email: 'roohan@nextmail.com',
     category:'income',
     typeOfExp: 'salary',
     amount: 15,
-    date: new Date()
+    date: '2022-12-06',
   },
   // {
   //   id: 'd6e15727-9fe1-4961-8c5b-ea44a9bd81aa',

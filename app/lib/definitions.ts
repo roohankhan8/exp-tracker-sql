@@ -6,10 +6,10 @@ export type User = {
 };
 
 export type Expense = {
-  id?: string;
+  id: string;
   email: string;
   category: string;
   typeOfExp: string;
   amount: number;
-  date: Date | string;
+  date: string;
 };
