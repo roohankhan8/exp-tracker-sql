@@ -52,6 +52,7 @@ async function seedExpenses(client) {
         category VARCHAR(255) NOT NULL,
         typeOfExp VARCHAR(255) NOT NULL,
         amount INT NOT NULL,
+        note TEXT NOT NULL,
         date DATE NOT NULL
       );
     `;
@@ -62,8 +63,8 @@ async function seedExpenses(client) {
     const insertedExpenses = await Promise.all(
       expenses.map(
         (expense) => client.sql`
-        INSERT INTO expenses (id, email, category, typeOfExp, amount, date)
-        VALUES (${expense.id},${expense.email}, ${expense.category}, ${expense.typeOfExp}, ${expense.amount}, ${expense.date})
+        INSERT INTO expenses (id, email, category, typeOfExp, amount, note, date)
+        VALUES (${expense.id},${expense.email}, ${expense.category}, ${expense.typeOfExp}, ${expense.amount}, ${expense.note}, ${expense.date})
         ON CONFLICT (id) DO NOTHING;
       `
       )

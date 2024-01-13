@@ -9,7 +9,17 @@ export type Expense = {
   id: string;
   email: string;
   category: string;
-  typeOfExp: string;
+  typeofexp: string;
   amount: number;
+  note:string,
+  date: string;
+};
+
+export type ExpenseForm = {
+  id: string;
+  category: string;
+  typeofexp: string;
+  amount: number;
+  note:string,
   date: string;
 };

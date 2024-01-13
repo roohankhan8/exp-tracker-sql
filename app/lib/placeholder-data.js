@@ -22,6 +22,7 @@ const expenses = [
     category:'expense',
     typeOfExp: 'food',
     amount: 15,
+    note:'a',
     date: '2022-12-06',
   },
   {
@@ -30,6 +31,7 @@ const expenses = [
     category:'expense',
     typeOfExp: 'transportation',
     amount: 15,
+    note:'a',
     date: '2022-12-06',
   },
   {
@@ -38,6 +40,7 @@ const expenses = [
     category:'expense',
     typeOfExp: 'other',
     amount: 15,
+    note:'a',
     date: '2022-12-06',
   },
   {
@@ -46,6 +49,7 @@ const expenses = [
     category:'income',
     typeOfExp: 'salary',
     amount: 15,
+    note:'a',
     date: '2022-12-06',
   },
   {
@@ -54,6 +58,7 @@ const expenses = [
     category:'income',
     typeOfExp: 'salary',
     amount: 15,
+    note:'a',
     date: '2022-12-06',
   },
   {
@@ -62,6 +67,7 @@ const expenses = [
     category:'income',
     typeOfExp: 'salary',
     amount: 15,
+    note:'a',
     date: '2022-12-06',
   },
   // {
