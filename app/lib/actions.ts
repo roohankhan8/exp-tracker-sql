@@ -139,14 +139,16 @@ const AddExpense = FormSchema.omit({ id: true, date: true });
 //     throw error;
 //   }
 // }
+import { v4 as uuidv4 } from 'uuid';
 
 export async function addExpense(expense: Expense) {
   const { email, category, typeofexp, amount } = expense;
   const date = new Date().toISOString().split("T")[0];
   try {
+    const id = uuidv4();
     await sql`
-        INSERT INTO expenses (email, category, typeofexp, amount, date)
-        VALUES (${email}, ${category}, ${typeofexp}, ${amount}, ${date})
+        INSERT INTO expenses (id, email, category, typeofexp, amount, note, date)
+        VALUES (${id}, ${email}, ${category}, ${typeofexp}, ${amount}, ${date})
       `;
   } catch (error) {
     return {
