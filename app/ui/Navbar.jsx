@@ -1,23 +1,23 @@
-import { Logout } from "./Logout";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Logout from './Logout'
 
 const Navbar = () =>
   // { page, image }
   {
+    const path = usePathname();
     return (
       <div id="sticky_header">
         <div className="flex justify-between items-center p-2">
-          <Link href="/dashboard" id="back">
-            Back
-          </Link>
-          {/* {page == 'Tracker' ? (
-                    <Logout />
-                ) : (
-                    <Link href='/dashboard' id="back">
-                        Back
-                    </Link>
-                )} */}
+          {path == "dashboard" ? (
+            <Logout />
+          ) : (
+            <Link href="/dashboard" id="back">
+              Back
+            </Link>
+          )}
           <h1 className=" text-xl font-bold">
             Expense Tracker
             {/* {page} */}

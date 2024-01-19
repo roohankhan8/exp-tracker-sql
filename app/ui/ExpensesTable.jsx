@@ -1,9 +1,9 @@
 import React from "react";
-import { Table, Overview } from "../ui";
+import { Table, Overview } from ".";
 import { fetchExpenses } from "../lib/data";
 
-const Dashboard = async () => {
-  const expenses = await fetchExpenses("roohan@nextmail.com");
+const ExpensesTable = async () => {
+  const expenses = await fetchExpenses("user@nextmail.com");
   //   console.log(expenses)
   return (
     <div>
@@ -20,4 +20,4 @@ const Dashboard = async () => {
   );
 };
 
-export default Dashboard;
+export default ExpensesTable;
