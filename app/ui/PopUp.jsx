@@ -2,6 +2,7 @@
 import { ShowType } from ".";
 import { useFormState } from "react-dom";
 import { addExpense } from "../lib/actions";
+import Link from "next/link";
 import { useState } from "react";
 const Popup = ({
   title,
@@ -12,10 +13,13 @@ const Popup = ({
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(addExpense, initialState);
   const [switchType, setswitchType] = useState("expense");
-  console.log(switchType);
+  // console.log(switchType);
   if (!isPopupOpen) return null;
   return (
-    <form action={dispatch}>
+    <form
+      action={dispatch}
+      // onSubmit={setIsPopupOpen(false)}
+    >
       <div className="popup-overlay">
         <div className="popup">
           <p className="text-center text-xl">{title} Expense</p>
@@ -58,10 +62,10 @@ const Popup = ({
               className=" p-2 text-white"
               // defaultValue={editExp.note}
               placeholder="Your Note here..."
-              onChange={(e) =>
-                seteditExp && seteditExp({ ...editExp, note: e.target.value })
-              }
-              name="desc"
+              // onChange={(e) =>
+              //   seteditExp && seteditExp({ ...editExp, note: e.target.value })
+              // }
+              name="note"
               id=""
               cols="30"
               rows="10"
@@ -70,15 +74,16 @@ const Popup = ({
           <div className="flex justify-between text-white p-2" id="options">
             <button
               className=" bg-red-700"
-              onClick={() => setIsPopupOpen && setIsPopupOpen(false)}
+              onClick={() => {
+                setIsPopupOpen(false);
+              }}
             >
               Cancel
             </button>
-
             <button
               type="submit"
               className=" bg-blue-700"
-              // onClick={() => updateNoteHandler && updateNoteHandler()}
+              onClick={() => setIsPopupOpen(false)}
             >
               Done
             </button>

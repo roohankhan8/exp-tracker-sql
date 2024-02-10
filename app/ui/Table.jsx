@@ -6,7 +6,7 @@ const Table = async ({ title, expenses }) => {
     <>
       <div
         id="boxes"
-        className=" sm:w-[50%] p-3 my-5 shadow-md shadow-black rounded-lg m-2"
+        className="sm:w-[50%] p-3 my-5 shadow-md shadow-black rounded-lg m-2"
       >
         <h1 className="text-center text-xl p-2 font-bold">{title}</h1>
         <table className="border-2 w-full rounded-lg text-center">

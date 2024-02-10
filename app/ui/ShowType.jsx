@@ -2,9 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-const ShowType = ({ title, category, editExp, seteditExp }) => {
+const ShowType = ({ 
+  title, 
+  category, 
+  editExp, 
+  seteditExp 
+}) => {
   const [showType, setShowType] = useState("");
-  console.log(category);
   useEffect(() => {
     if (category === "income") {
       setShowType("salary");
@@ -12,15 +16,19 @@ const ShowType = ({ title, category, editExp, seteditExp }) => {
       setShowType("food");
     }
   }, [category]);
-
-  console.log(showType);
   if (
     category == "expense"
     // title=='Add' editExp.category == '' || editExp.category == 'expense'
   ) {
     return (
       <>
-        <input type="text" id="typeofexp" name="typeofexp" value={showType} />
+        <input 
+        type="text" 
+        id="typeofexp" 
+        name="typeofexp" 
+        defaultValue={showType} 
+        // className="hidden" 
+        />
         <div>
           <input
             type="radio"
@@ -39,7 +47,7 @@ const ShowType = ({ title, category, editExp, seteditExp }) => {
             id="transportation"
             name="typeOfExp"
             value="transportation"
-            // checked={editExp.typeOfExp === "transportation"}
+            checked={showType == "transportation"}
             // onChange={(e) => { seteditExp({ ...editExp, typeOfExp: e.target.value }) }}
             onChange={(e) => setShowType(e.target.value)}
           />
@@ -51,7 +59,7 @@ const ShowType = ({ title, category, editExp, seteditExp }) => {
             id="others"
             name="typeOfExp"
             value="others"
-            // checked={editExp.typeOfExp === "others"}
+            checked={showType == "others"}
             // onChange={(e) => { seteditExp({ ...editExp, typeOfExp: e.target.value }) }}
             onChange={(e) => setShowType(e.target.value)}
           />
@@ -62,14 +70,20 @@ const ShowType = ({ title, category, editExp, seteditExp }) => {
   } else {
     return (
       <>
-        <input type="text" id="typeofexp" name="typeofexp" value={showType} />
+        <input 
+        type="text" 
+        id="typeofexp" 
+        name="typeofexp" 
+        defaultValue={showType}
+        className="hidden"
+        />
         <div>
           <input
             type="radio"
             id="salary"
             name="typeOfExp"
             value="salary"
-            // checked={editExp.typeOfExp === "salary"}
+            checked={showType === "salary"}
             // onChange={(e) => {
             //   seteditExp({ ...editExp, typeOfExp: e.target.value });
             onChange={(e) => setShowType(e.target.value)}
@@ -83,7 +97,7 @@ const ShowType = ({ title, category, editExp, seteditExp }) => {
             id="bonus"
             name="typeOfExp"
             value="bonus"
-            // checked={editExp.typeOfExp === "bonus"}
+            checked={showType === "bonus"}
             // onChange={(e) => {
             //   seteditExp({ ...editExp, typeOfExp: e.target.value });
             onChange={(e) => setShowType(e.target.value)}
@@ -97,7 +111,7 @@ const ShowType = ({ title, category, editExp, seteditExp }) => {
             id="allowance"
             name="typeOfExp"
             value="allowance"
-            // checked={editExp.typeOfExp === "allowance"}
+            checked={showType === "allowance"}
             // onChange={(e) => {
             //   seteditExp({ ...editExp, typeOfExp: e.target.value });
             onChange={(e) => setShowType(e.target.value)}

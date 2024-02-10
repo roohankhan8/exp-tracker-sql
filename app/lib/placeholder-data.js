@@ -2,13 +2,13 @@
 // https://nextjs.org/learn/dashboard-app/fetching-data
 const users = [
   {
-    id: '410544b2-4001-4271-9855-fec4b6a6442a',
+    id: '85a5be18-3aa8-40bb-96bb-252a19bdcbff',
     name: 'User',
     email: 'user@nextmail.com',
     password: '123456',
   },
   {
-    id: '410544c2-4001-4271-9855-6ec4b6a6442b',
+    id: 'e1e25f62-e63f-4410-86c9-77154ad7a268',
     name: 'Roohan',
     email: 'roohan@nextmail.com',
     password: '123456',
@@ -17,7 +17,7 @@ const users = [
 
 const expenses = [
   {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    id: '7ae2e699-847b-4c50-8dd8-4902f3106824',
     email: 'roohan@nextmail.com',
     category:'expense',
     typeOfExp: 'food',
@@ -26,7 +26,7 @@ const expenses = [
     date: '2022-12-06',
   },
   {
-    id: '3958dc9e-742f-4377-85e9-fec4b6a6442a',
+    id: '998754b9-1e60-422f-83da-6ffe7b3ebfea',
     email: 'roohan@nextmail.com',
     category:'expense',
     typeOfExp: 'transportation',
@@ -53,7 +53,7 @@ const expenses = [
     date: '2022-12-06',
   },
   {
-    id: '3958dc9e-787f-4377-85e9-fec4b6a6442a',
+    id: '4b9109bf-10fd-4337-a6bf-0152b01132e6',
     email: 'user@nextmail.com',
     category:'income',
     typeOfExp: 'salary',

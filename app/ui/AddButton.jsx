@@ -6,15 +6,16 @@ import { useState } from "react";
 
 const AddButton = ({}) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const openPopup = (expense) => {
-    // seteditExp(expense);
+  const openPopup = () => {
     setIsPopupOpen(true);
   };
   return (
     <div className="m-2">
       <button
         className="w-full bg-sky-700 text-lg p-2 rounded-lg shadow-md hover:shadow-black"
-        onClick={openPopup}
+        onClick={() => {
+          setIsPopupOpen(true);
+        }}
       >
         <span>Add Expense </span>+
       </button>

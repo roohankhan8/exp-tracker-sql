@@ -11,6 +11,7 @@ export type State = {
     category?: string[];
     typeofexp?: string[];
     amount?: string[];
+    note?: string[];
   };
   message?: string | null;
 };
@@ -29,6 +30,9 @@ const FormSchema = z.object({
   amount: z.coerce
     .number()
     .gt(0, { message: "Please enter an amount greater than $0." }),
+  note: z.string({
+    invalid_type_error: "Please select a type.",
+  }),
   date: z.string(),
 });
 
@@ -139,22 +143,39 @@ const AddExpense = FormSchema.omit({ id: true, date: true });
 //     throw error;
 //   }
 // }
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-export async function addExpense(expense: Expense) {
-  const { email, category, typeofexp, amount } = expense;
+export async function addExpense(prevState: State, formData: FormData) {
+  // Validate form using Zod
+  const validatedFields = AddExpense.safeParse({
+    email: formData.get("email"),
+    category: formData.get("category"),
+    typeofexp: formData.get("typeofexp"),
+    amount: formData.get("amount"),
+    note: formData.get("note"),
+  });
+
+  // If form validation fails, return errors early. Otherwise, continue.
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to Add Expense.",
+    };
+  }
+  const { email, category, typeofexp, amount, note } = validatedFields.data;
   const date = new Date().toISOString().split("T")[0];
   try {
     const id = uuidv4();
     await sql`
         INSERT INTO expenses (id, email, category, typeofexp, amount, note, date)
-        VALUES (${id}, ${email}, ${category}, ${typeofexp}, ${amount}, ${date})
+        VALUES (${id}, ${email}, ${category}, ${typeofexp}, ${amount}, ${note}, ${date})
       `;
+    console.log('Expense added')
   } catch (error) {
     return {
       message: "Database Error: Failed to Create Invoice.",
     };
   }
-  revalidatePath("/dashboard");
-  redirect("/dashboard");
+  // revalidatePath("/dashboard");
+  // redirect("/dashboard");
 }

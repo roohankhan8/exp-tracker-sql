@@ -3,7 +3,7 @@ import { Table, Overview } from ".";
 import { fetchExpenses } from "../lib/data";
 
 const ExpensesTable = async () => {
-  const expenses = await fetchExpenses("user@nextmail.com");
+  const expenses = await fetchExpenses("roohan8@nextmail.com");
   //   console.log(expenses)
   return (
     <div>
